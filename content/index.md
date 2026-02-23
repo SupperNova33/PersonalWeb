@@ -1,6 +1,6 @@
 <style>
   body {
-    background-color: #3a3b3c; /* A nice mid-dark grey */
+    background-color: #2b2b2b; /* A nice mid-dark grey */
     color: #f5f5f5; /* Ensures any loose text stays readable */
   }
   /* Custom CSS for the Hub Dashboard */
