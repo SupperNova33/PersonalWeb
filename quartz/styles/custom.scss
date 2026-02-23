@@ -25,14 +25,15 @@
 
 /* 4. The Cards (Using Quartz's native color variables!) */
 /* 4. The Cards */
+/* 4. The Cards (Updated to fix invisible text) */
 .hub-card {
-  background: var(--light); 
-  border: 1px solid var(--lightgray); 
-  border-radius: 16px; /* Increased to 16px for a rounder 'bubble' look */
-  padding: 2.5rem; /* Increased padding to make the inside larger */
-  min-height: 200px; /* Forces the cards to be significantly taller */
+  background: var(--lightgray) !important; /* Makes the bubble pop against the background */
+  border: 1px solid var(--gray) !important; 
+  border-radius: 16px; 
+  padding: 2.5rem; 
+  min-height: 200px; 
   text-decoration: none !important; 
-  color: var(--dark); 
+  color: var(--dark) !important; /* Forces the main text to be visible */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
@@ -40,19 +41,23 @@
 
 .hub-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-  border-color: var(--secondary); /* Highlights using Quartz's accent color */
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  border-color: var(--secondary) !important; 
 }
 
 .hub-card h3 {
   margin-top: 0;
-  color: var(--secondary); 
+  color: var(--secondary) !important; /* Forces header visibility */
 }
 
 .hub-card p {
   flex-grow: 1;
   font-size: 0.9rem;
-  color: var(--gray);
+  color: var(--darkgray) !important; /* Forces paragraph visibility */
+}
+
+.hub-card strong {
+  color: var(--tertiary) !important; /* Makes the 'View ->' text pop */
 }
 
 /* 5. Active Dashboard Widget */
