@@ -1,3 +1,69 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+/* --- Custom Hub Dashboard Layout --- */
+
+/* 1. Widen the center column slightly so the grid has room to breathe */
+.center {
+  max-width: 900px !important; 
+}
+
+/* 2. Hub Header */
+.hub-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* 3. The Grid Layout */
+.hub-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* 4. The Cards (Using Quartz's native color variables!) */
+.hub-card {
+  background: var(--light); /* Uses Quartz's theme background */
+  border: 1px solid var(--lightgray); /* Blends perfectly with the theme */
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-decoration: none !important; /* Removes default link underlines */
+  color: var(--dark); /* Auto-adjusts text color for light/dark mode */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.hub-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  border-color: var(--secondary); /* Highlights using Quartz's accent color */
+}
+
+.hub-card h3 {
+  margin-top: 0;
+  color: var(--secondary); 
+}
+
+.hub-card p {
+  flex-grow: 1;
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+/* 5. Active Dashboard Widget */
+.active-widget {
+  grid-column: 1 / -1; /* Spans the full width */
+  background: var(--lightgray);
+  border-left: 4px solid var(--tertiary); /* Uses Quartz's tertiary accent */
+}
+
+.dashboard-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dashboard-list li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
