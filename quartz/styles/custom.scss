@@ -3,9 +3,9 @@
 // put your custom CSS here!
 /* --- Custom Hub Dashboard Layout --- */
 
-/* 1. Widen the center column slightly so the grid has room to breathe */
-.center {
-  max-width: 900px !important; 
+/* 1. Widen the article content area so the grid has room to expand */
+.page article {
+  max-width: 950px !important; 
 }
 
 /* 2. Hub Header */
@@ -15,20 +15,24 @@
 }
 
 /* 3. The Grid Layout */
+/* 3. The Grid Layout */
 .hub-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  /* Increased from 280px to 320px to make the bubbles wider */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem; /* Gives the bubbles more breathing room */
 }
 
 /* 4. The Cards (Using Quartz's native color variables!) */
+/* 4. The Cards */
 .hub-card {
-  background: var(--light); /* Uses Quartz's theme background */
-  border: 1px solid var(--lightgray); /* Blends perfectly with the theme */
-  border-radius: 8px;
-  padding: 1.5rem;
-  text-decoration: none !important; /* Removes default link underlines */
-  color: var(--dark); /* Auto-adjusts text color for light/dark mode */
+  background: var(--light); 
+  border: 1px solid var(--lightgray); 
+  border-radius: 16px; /* Increased to 16px for a rounder 'bubble' look */
+  padding: 2.5rem; /* Increased padding to make the inside larger */
+  min-height: 200px; /* Forces the cards to be significantly taller */
+  text-decoration: none !important; 
+  color: var(--dark); 
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
