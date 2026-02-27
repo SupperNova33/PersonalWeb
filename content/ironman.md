@@ -83,22 +83,27 @@
   <p>Track permanent account milestones and add rolling daily/weekly goals below.</p>
 
   <details open>
-    <summary>Early Game Milestones</summary>
+    <summary>Personal Goal Check List</summary>
     <ul class="goal-list">
-      <li><label><input type="checkbox" class="saveable-check" value="graceful"> Full Graceful Outfit</label></li>
-      <li><label><input type="checkbox" class="saveable-check" value="fairy-rings"> Unlock Fairy Rings</label></li>
-      <li><label><input type="checkbox" class="saveable-check" value="bone-cbow"> Dorgeshuun Bone Crossbow</label></li>
-      <li><label><input type="checkbox" class="saveable-check" value="ardy-cloak-1"> Ardougne Cloak 1</label></li>
+      <li><label><input type="checkbox" class="saveable-check" value="barrows-telly"> Get 82 Magic for Barrows Telly</label></li>
+      <li><label><input type="checkbox" class="saveable-check" value="coin-for-spells">Get money for Magic</label></li>
     </ul>
   </details>
 
   <details>
-    <summary>Mid Game Unlocks</summary>
+    <summary>Early Game Check Lists upgrades</summary>
     <ul class="goal-list">
-      <li><label><input type="checkbox" class="saveable-check" value="barrow-gloves"> Barrows Gloves (Recipe for Disaster)</label></li>
-      <li><label><input type="checkbox" class="saveable-check" value="dragon-scim"> Dragon Scimitar (Monkey Madness I)</label></li>
-      <li><label><input type="checkbox" class="saveable-check" value="dragon-defender"> Dragon Defender</label></li>
-      <li><label><input type="checkbox" class="saveable-check" value="fighter-torso"> Fighter Torso</label></li>
+      <li><label><input type="checkbox" class="saveable-check" value="Berserker-ringi">Berserker ring (i) from Dagannoth Rex</label></li>
+      <li><label><input type="checkbox" class="saveable-check" value="Imbuedgod-cape ">Imbued god cape from Mage Arena II</label></li>
+    </ul>
+  </details>
+
+  <details open>
+    <summary>MidGame Check List</summary>
+    <ul class="goal-list">
+      <li><label><input type="checkbox" class="saveable-check" value="barrows-gear">Farm Barrows Gear</label></li>
+      <li><label><input type="checkbox" class="saveable-check" value="moons-gear">Farm Moons of Parel Gear</label></li>
+      <li><label><input type="checkbox" class="saveable-check" value="slayer-wip"> Get slayer level 82 for whip</label></li>
     </ul>
   </details>
 
@@ -107,7 +112,7 @@
     <input type="text" id="new-goal-input" placeholder="E.g., Farm 500 giant seaweed...">
     <button id="add-goal-btn">Add Goal</button>
     
-    <ul class="goal-list" id="custom-goals-list">
+  <ul class="goal-list" id="custom-goals-list">
       </ul>
   </div>
 
