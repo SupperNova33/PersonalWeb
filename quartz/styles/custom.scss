@@ -5,7 +5,7 @@
 
 /* 1. Widen the article content area so the grid has room to expand */
 .page article {
-  max-width: 1500px !important; 
+  max-width: 1fr !important; 
 }
 
 /* 2. Hub Header */
@@ -75,4 +75,18 @@
 .dashboard-list li {
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
+}
+/* --- Remove Right Sidebar Blank Space --- */
+
+/* 1. Hide the empty container entirely */
+.right.sidebar {
+  display: none !important;
+}
+
+/* 2. Tell the desktop layout to only draw two columns instead of three */
+@media all and (min-width: 1200px) {
+  .page {
+    grid-template-columns: 280px minmax(auto, 950px) !important;
+    justify-content: center;
+  }
 }
