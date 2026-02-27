@@ -114,34 +114,34 @@
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+// We changed "DOMContentLoaded" to "nav" to work with Quartz's fast-loading
+document.addEventListener("nav", () => {
   
-  // --- 1. HANDLE STATIC PERMANENT GOALS ---
+  // 1. Make sure we are actually on the Iron Man page before running
+  const addBtn = document.getElementById('add-goal-btn');
+  if (!addBtn) return; 
+
+  // --- HANDLE STATIC PERMANENT GOALS ---
   const staticChecks = document.querySelectorAll('.saveable-check');
   staticChecks.forEach(box => {
-    // Check local storage on load
     const savedState = localStorage.getItem('osrs-static-' + box.value);
     if (savedState === 'true') {
       box.checked = true;
     }
     
-    // Save to local storage when clicked
     box.addEventListener('change', (e) => {
       localStorage.setItem('osrs-static-' + e.target.value, e.target.checked);
     });
   });
 
-  // --- 2. HANDLE DYNAMIC CUSTOM GOALS ---
+  // --- HANDLE DYNAMIC CUSTOM GOALS ---
   const customList = document.getElementById('custom-goals-list');
-  const addBtn = document.getElementById('add-goal-btn');
   const input = document.getElementById('new-goal-input');
 
-  // Load array of custom goals from storage, or start empty
   let customGoalsArray = JSON.parse(localStorage.getItem('osrs-custom-goals')) || [];
   
-  // Function to draw the custom goals on the screen
   function renderCustomGoals() {
-    customList.innerHTML = ''; // Clear the list first
+    customList.innerHTML = ''; 
     
     customGoalsArray.forEach((goal, index) => {
       const li = document.createElement('li');
@@ -155,7 +155,6 @@ document.addEventListener("DOMContentLoaded", () => {
       customList.appendChild(li);
     });
 
-    // Attach save events to the newly drawn checkboxes
     document.querySelectorAll('.custom-check').forEach(box => {
       box.addEventListener('change', (e) => {
         const idx = e.target.getAttribute('data-index');
@@ -164,32 +163,28 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Attach delete events to the red X buttons
     document.querySelectorAll('.delete-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const idx = e.target.getAttribute('data-index');
-        customGoalsArray.splice(idx, 1); // Remove from array
-        localStorage.setItem('osrs-custom-goals', JSON.stringify(customGoalsArray)); // Update storage
-        renderCustomGoals(); // Redraw the list
+        customGoalsArray.splice(idx, 1); 
+        localStorage.setItem('osrs-custom-goals', JSON.stringify(customGoalsArray)); 
+        renderCustomGoals(); 
       });
     });
   }
 
-  // Draw goals immediately on page load
   renderCustomGoals();
 
-  // Listen for the "Add Goal" button click
   addBtn.addEventListener('click', () => {
     const text = input.value.trim();
     if (text !== "") {
       customGoalsArray.push({ text: text, completed: false });
       localStorage.setItem('osrs-custom-goals', JSON.stringify(customGoalsArray));
-      input.value = ''; // Clear the input box
-      renderCustomGoals(); // Redraw the list with the new item
+      input.value = ''; 
+      renderCustomGoals(); 
     }
   });
 
-  // Allow pressing "Enter" on the keyboard to add a goal
   input.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
       addBtn.click();
