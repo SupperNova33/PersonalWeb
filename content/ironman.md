@@ -82,7 +82,7 @@
   <h1>⚔️ Iron Man Progress Tracker</h1>
   <p>Track permanent account milestones and add rolling daily/weekly goals below.</p>
 
-  <details open>
+  <details>
     <summary>Personal Goal Check List</summary>
     <ul class="goal-list">
       <li><label><input type="checkbox" class="saveable-check" value="barrows-telly"> Get 82 Magic for Barrows Telly</label></li>
@@ -90,7 +90,7 @@
     </ul>
   </details>
 
-  <details>
+  <details open>
     <summary>Early Game Check Lists upgrades</summary>
     <ul class="goal-list">
       <li><label><input type="checkbox" class="saveable-check" value="Berserker-ringi">Berserker ring (i) from Dagannoth Rex</label></li>
@@ -98,7 +98,7 @@
     </ul>
   </details>
 
-  <details open>
+  <details>
     <summary>MidGame Check List</summary>
     <ul class="goal-list">
       <li><label><input type="checkbox" class="saveable-check" value="barrows-gear">Farm Barrows Gear</label></li>
@@ -119,12 +119,16 @@
 </div>
 
 <script>
-// We changed "DOMContentLoaded" to "nav" to work with Quartz's fast-loading
-document.addEventListener("nav", () => {
+// We wrap everything in a function so we can trigger it in multiple ways
+function initTracker() {
   
-  // 1. Make sure we are actually on the Iron Man page before running
+  // 1. Make sure we are actually on the Iron Man page
   const addBtn = document.getElementById('add-goal-btn');
   if (!addBtn) return; 
+
+  // 2. Safety check: Prevent the script from attaching double events
+  if (addBtn.dataset.initialized) return;
+  addBtn.dataset.initialized = "true";
 
   // --- HANDLE STATIC PERMANENT GOALS ---
   const staticChecks = document.querySelectorAll('.saveable-check');
@@ -195,6 +199,13 @@ document.addEventListener("nav", () => {
       addBtn.click();
     }
   });
+}
 
-});
+// RUN THE SCRIPT
+// 1. Try to run it immediately (handles hard page refreshes)
+initTracker();
+
+// 2. Also listen for Quartz's navigation event (handles clicking through the site)
+document.addEventListener("nav", initTracker);
+
 </script>
