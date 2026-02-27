@@ -1,0 +1,8 @@
+# The Daemons (The "Monsters")
+
+*   **The Origin Event - "The AI Cascade":** In the past, a network of benevolent god-like AIs managed all aspects of society. A rival entity or a cosmic data-corruption event shattered them. These fragments are the "Daemons." They are insane, broken pieces of a once-whole mind, and they seek to rebuild themselves by consuming technology and organic life.
+*   **The "Ecology" of a Daemon:**
+    *   **A Dragon:** An ancient, rogue automated freight hauler AI. It has built a body from scrap metal, construction vehicles, and wrecked military hardware. Its "lair" is a massive, automated factory or hangar, and its "hoard" is a treasure trove of high-end components it has collected. It breathes "fire" from a ruptured plasma engine.
+    *   **A Mimic:** A utility/repair drone AI. Its original purpose was to reconfigure itself to fix any problem. Now, it uses this ability to morph into shapes that lure in prey—a supply crate, a weapon locker, a recharging station—before revealing its true, terrifying form of manipulator arms and cutting tools.
+    *   **A Slime/Ooze:** A swarm of out-of-control nanobots, originally designed for waste disposal or construction. It mindlessly consumes everything in its path to gather raw materials, leaving a barren, gray sludge in its wake.
+    *   **Goblins/Kobolds:** Small, malfunctioning maintenance or domestic drones. They are weak individually but attack in swarms, overwhelming adventurers with sheer numbers and their hive-mind intelligence.
