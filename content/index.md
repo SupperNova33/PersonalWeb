@@ -32,7 +32,7 @@
     <span class="card-link">View Notes &rarr;</span>
   </div>
 
-  <div class="hub-card" onclick="window.location.href='./CyberSpell_Start'">
+  <div class="hub-card" onclick="window.location.href='./Cyberspell/CyberSpell_Start'">
     <h3>🌌 Cyber Spell</h3>
     <p>Worldbuilding wiki detailing factions, techno-wizardry, and locations.</p>
     <span class="card-link">Enter the Vault &rarr;</span>
