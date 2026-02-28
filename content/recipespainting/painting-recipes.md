@@ -76,7 +76,17 @@
 A complete grid of all my color schemes, wash techniques, and basing recipes.
 
 <div class="search-container">
-  <input type="text" id="recipe-search" placeholder="Search recipes (e.g., Grimdark, Purple, Nuln Oil)...">
+  <input 
+    type="text" 
+    id="recipe-search" 
+    placeholder="Search recipes (e.g., Grimdark, Purple, Nuln Oil)..."
+    onkeyup="
+      const term = this.value.toLowerCase();
+      document.querySelectorAll('.recipe-card-small').forEach(card => {
+        card.style.display = card.textContent.toLowerCase().includes(term) ? 'flex' : 'none';
+      });
+    "
+  >
 </div>
 
 <div class="recipe-grid" id="recipe-grid">
@@ -123,36 +133,5 @@ A complete grid of all my color schemes, wash techniques, and basing recipes.
 </div>
 
 <script>
-function initRecipeSearch() {
-  const searchInput = document.getElementById('recipe-search');
-  if (!searchInput) return; // Stop if we aren't on the recipe page
 
-  // Prevent double-loading the script
-  if (searchInput.dataset.initialized) return;
-  searchInput.dataset.initialized = "true";
-
-  searchInput.addEventListener('keyup', function(e) {
-    // Get the typed text and make it lowercase for easy matching
-    const searchTerm = e.target.value.toLowerCase();
-    
-    // Grab every recipe card on the page
-    const recipeCards = document.querySelectorAll('.recipe-card-small');
-
-    recipeCards.forEach(card => {
-      // Read all the text inside the card (title, paints, etc.)
-      const cardText = card.textContent.toLowerCase();
-      
-      // If the card's text contains the search term, show it. Otherwise, hide it.
-      if (cardText.includes(searchTerm)) {
-        card.style.display = 'flex'; 
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  });
-}
-
-// Run the script on hard refresh and on Quartz navigation
-initRecipeSearch();
-document.addEventListener("nav", initRecipeSearch);
 </script>
