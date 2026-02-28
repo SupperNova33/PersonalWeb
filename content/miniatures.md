@@ -189,25 +189,47 @@ Welcome to the workbench. This is where I track my army rosters, save my paint r
   <div class="backlog-grid">
     
   <div class="army-box">
-      <h3>Warhammer 40k - RTT Roster</h3>
-      <progress value="3" max="5"></progress>
+      <h3>Warhammer 40k - Admech Lot</h3>
+      <progress value="2" max="9"></progress>
       <ul>
-        <li><input type="checkbox" checked> <del>HQ Unit (Finished)</del></li>
-        <li><input type="checkbox" checked> <del>Core Infantry Squad 1</del></li>
-        <li><input type="checkbox" checked> <del>Heavy Support Vehicle</del></li>
-        <li><input type="checkbox"> Core Infantry Squad 2 (Primed)</li>
-        <li><input type="checkbox"> Elite Unit (Needs Basing)</li>
+        <li><input type="checkbox" checked> <del>Skitarii Rangers x10</del></li>
+        <li><input type="checkbox" checked> <del>Kastelan Robots x2</del></li>
+        <li><input type="checkbox">Skitarii Vanguard x10 (On Sprew)</li>
+        <li><input type="checkbox">Skitarii Vanguard x10 (In Box)</li>
+        <li><input type="checkbox">Kataphron Breachers x3 #1 (Primed)</li>
+        <li><input type="checkbox">Kataphron Breachers x3 #2 (On Sprew)</li>
+        <li><input type="checkbox">Kataphron Breachers x3 #3 (On Sprew)</li>
+        <li><input type="checkbox">Skitarii Marshall (HQ on Sprew)</li>
+        <li><input type="checkbox">manipulus (HQ) (In Box)</li>
       </ul>
     </div>
 
   <div class="army-box">
-      <h3>Sorcery Gothic Warband</h3>
-      <progress value="1" max="4"></progress>
+      <h3>40k Rengade Raiders Box</h3>
+      <progress value="0" max="6"></progress>
       <ul>
-        <li><input type="checkbox" checked> <del>Test Model / Color Scheme</del></li>
-        <li><input type="checkbox"> Spellcaster Leader</li>
-        <li><input type="checkbox"> Minion Group A</li>
-        <li><input type="checkbox"> Minion Group B</li>
+        <li><input type="checkbox"> Test Model / Color Scheme</li>
+        <li><input type="checkbox"> HQ Box</li>
+        <li><input type="checkbox"> New Rever Squad x5 #1</li>
+        <li><input type="checkbox"> New Rever Squad x5 #2</li>
+        <li><input type="checkbox"> Rever Captin</li>
+        <li><input type="checkbox"> CSM New Legionars</li>
+      </ul>
+    </div>
+
+  <div class="army-box">
+      <h3>Gene Stealer Cult</h3>
+      <progress value="0" max="1"></progress>
+      <ul>
+        <li><input type="checkbox"> Review Model Count/Need Paint</li>
+      </ul>
+    </div>
+
+  <div class="army-box">
+      <h3>Murder Clowns</h3>
+      <progress value="0" max="1"></progress>
+      <ul>
+        <li><input type="checkbox"> Review Model Count/Need Paint</li>
       </ul>
     </div>
 
