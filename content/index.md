@@ -8,12 +8,12 @@
   <div class="hub-card active-widget">
     <h3>📌 Active Radar & Deadlines</h3>
     <ul class="dashboard-list">
-        <li><input type="checkbox"> <strong>Mar 07:</strong>40k RTT event</li>
-        <li><input type="checkbox"> <strong>Mar 21:</strong>BonFire Games RTT</li>
-        <li><input type="checkbox"> <strong>May 2026</strong>Get First Aid for ID Tech</li>
-        <li><input type="checkbox"> <strong>To Do</strong>Work on Iron Man Check List</li>
-        <li><input type="checkbox"> <strong>To Do</strong>Upload Images to Mini Paint Page</li>
-        <li><input type="checkbox"> <strong>To Do</strong>Upload Recipies to Paint Page</li>
+        <li><input type="checkbox"> <strong>Mar 07: </strong>40k RTT event</li>
+        <li><input type="checkbox"> <strong>Mar 21: </strong>BonFire Games RTT</li>
+        <li><input type="checkbox"> <strong>May 2026: </strong>Get First Aid for ID Tech</li>
+        <li><input type="checkbox"> <strong>To Do: </strong>Work on Iron Man Check List</li>
+        <li><input type="checkbox"> <strong>To Do: </strong>Upload Images to Mini Paint Page</li>
+        <li><input type="checkbox"> <strong>To Do: </strong>Upload Recipies to Paint Page</li>
     </ul>
   </div>
 
