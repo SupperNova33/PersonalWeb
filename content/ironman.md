@@ -1,25 +1,26 @@
 <style>
-  /* Styling for the lists and inputs */
   .osrs-container {
-    background-color: #1e1e1e;
+    background-color: var(--lightgray);
     padding: 2rem;
     border-radius: 8px;
-    color: #f5f5f5;
+    color: var(--dark);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   }
   
   details {
-    background-color: #2a2a2a;
+    background-color: var(--light);
     padding: 10px;
     margin-bottom: 10px;
-    border-left: 4px solid #b8860b; /* RuneScape gold color */
+    border-left: 4px solid #b8860b; 
     border-radius: 4px;
+    border: 1px solid var(--gray);
   }
   
   summary {
     font-weight: bold;
     cursor: pointer;
     font-size: 1.1rem;
-    color: #ffd700;
+    color: #b8860b;
   }
   
   ul.goal-list {
@@ -39,20 +40,19 @@
     cursor: pointer;
   }
 
-  /* Styling for the dynamic Add Goal section */
   .add-goal-box {
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 1px solid #444;
+    border-top: 1px solid var(--gray);
   }
 
   #new-goal-input {
     padding: 8px;
     width: 70%;
     border-radius: 4px;
-    border: 1px solid #555;
-    background: #333;
-    color: white;
+    border: 1px solid var(--gray);
+    background: var(--light);
+    color: var(--dark);
   }
 
   #add-goal-btn {
@@ -72,140 +72,102 @@
   .delete-btn {
     background: none;
     border: none;
-    color: #ff4c4c;
     cursor: pointer;
     font-size: 0.9rem;
+    padding: 0 5px;
   }
 </style>
 
 <div class="osrs-container">
-  <h1>⚔️ Iron Man Progress Tracker</h1>
+  <h1 style="margin-top: 0; color: var(--secondary);">⚔️ Iron Man Progress Tracker</h1>
   <p>Track permanent account milestones and add rolling daily/weekly goals below.</p>
 
   <details>
     <summary>Personal Goal Check List</summary>
     <ul class="goal-list">
       <li><label><input type="checkbox" class="saveable-check" value="barrows-telly"> Get 82 Magic for Barrows Telly</label></li>
-      <li><label><input type="checkbox" class="saveable-check" value="coin-for-spells">Get money for Magic</label></li>
+      <li><label><input type="checkbox" class="saveable-check" value="coin-for-spells"> Get money for Magic</label></li>
     </ul>
   </details>
 
   <details open>
     <summary>Early Game Check Lists upgrades</summary>
     <ul class="goal-list">
-      <li><label><input type="checkbox" class="saveable-check" value="Berserker-ringi">Berserker ring (i) from Dagannoth Rex</label></li>
-      <li><label><input type="checkbox" class="saveable-check" value="Imbuedgod-cape ">Imbued god cape from Mage Arena II</label></li>
+      <li><label><input type="checkbox" class="saveable-check" value="Berserker-ringi"> Berserker ring (i) from Dagannoth Rex</label></li>
+      <li><label><input type="checkbox" class="saveable-check" value="Imbuedgod-cape"> Imbued god cape from Mage Arena II</label></li>
     </ul>
   </details>
 
   <details>
     <summary>MidGame Check List</summary>
     <ul class="goal-list">
-      <li><label><input type="checkbox" class="saveable-check" value="barrows-gear">Farm Barrows Gear</label></li>
-      <li><label><input type="checkbox" class="saveable-check" value="moons-gear">Farm Moons of Parel Gear</label></li>
+      <li><label><input type="checkbox" class="saveable-check" value="barrows-gear"> Farm Barrows Gear</label></li>
+      <li><label><input type="checkbox" class="saveable-check" value="moons-gear"> Farm Moons of Peril Gear</label></li>
       <li><label><input type="checkbox" class="saveable-check" value="slayer-wip"> Get slayer level 82 for whip</label></li>
     </ul>
   </details>
 
   <div class="add-goal-box">
-    <h3 style="color: #ffd700; margin-top: 0;">🎯 Custom & Rolling Goals</h3>
-    <input type="text" id="new-goal-input" placeholder="E.g., Farm 500 giant seaweed...">
-    <button id="add-goal-btn">Add Goal</button>
+    <h3 style="color: #b8860b; margin-top: 0;">🎯 Custom & Rolling Goals</h3>
+    <input type="text" id="new-goal-input" placeholder="E.g., Farm 500 giant seaweed..." onkeypress="if(event.key === 'Enter') window.osrsTracker.add()">
+    <button id="add-goal-btn" onclick="window.osrsTracker.add()">Add Goal</button>
     
-  <ul class="goal-list" id="custom-goals-list">
-      </ul>
+  <ul class="goal-list" id="custom-goals-list"></ul>
   </div>
 
 </div>
 
-<script>
-// We wrap everything in a function so we can trigger it in multiple ways
-function initTracker() {
-  
-  // 1. Make sure we are actually on the Iron Man page
-  const addBtn = document.getElementById('add-goal-btn');
-  if (!addBtn) return; 
-
-  // 2. Safety check: Prevent the script from attaching double events
-  if (addBtn.dataset.initialized) return;
-  addBtn.dataset.initialized = "true";
-
-  // --- HANDLE STATIC PERMANENT GOALS ---
-  const staticChecks = document.querySelectorAll('.saveable-check');
-  staticChecks.forEach(box => {
-    const savedState = localStorage.getItem('osrs-static-' + box.value);
-    if (savedState === 'true') {
-      box.checked = true;
-    }
-    
-    box.addEventListener('change', (e) => {
-      localStorage.setItem('osrs-static-' + e.target.value, e.target.checked);
-    });
-  });
-
-  // --- HANDLE DYNAMIC CUSTOM GOALS ---
-  const customList = document.getElementById('custom-goals-list');
-  const input = document.getElementById('new-goal-input');
-
-  let customGoalsArray = JSON.parse(localStorage.getItem('osrs-custom-goals')) || [];
-  
-  function renderCustomGoals() {
-    customList.innerHTML = ''; 
-    
-    customGoalsArray.forEach((goal, index) => {
-      const li = document.createElement('li');
-      li.innerHTML = `
-        <label>
-          <input type="checkbox" class="custom-check" data-index="${index}" ${goal.completed ? 'checked' : ''}> 
-          ${goal.text}
-        </label>
-        <button class="delete-btn" data-index="${index}" title="Remove Goal">❌</button>
-      `;
-      customList.appendChild(li);
-    });
-
-    document.querySelectorAll('.custom-check').forEach(box => {
-      box.addEventListener('change', (e) => {
-        const idx = e.target.getAttribute('data-index');
-        customGoalsArray[idx].completed = e.target.checked;
-        localStorage.setItem('osrs-custom-goals', JSON.stringify(customGoalsArray));
+<img src="dummy-image-trigger" style="display:none;" onerror="
+  window.osrsTracker = {
+    render: function() {
+      const list = document.getElementById('custom-goals-list');
+      if(!list) return;
+      const goals = JSON.parse(localStorage.getItem('osrs-custom') || '[]');
+      let html = '';
+      goals.forEach((g, i) => {
+        const checked = g.done ? 'checked' : '';
+        html += `<li>
+          <label><input type='checkbox' onchange='window.osrsTracker.toggle(${i}, this.checked)' ${checked}> ${g.text}</label>
+          <button class='delete-btn' onclick='window.osrsTracker.delete(${i})'>❌</button>
+        </li>`;
       });
-    });
-
-    document.querySelectorAll('.delete-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const idx = e.target.getAttribute('data-index');
-        customGoalsArray.splice(idx, 1); 
-        localStorage.setItem('osrs-custom-goals', JSON.stringify(customGoalsArray)); 
-        renderCustomGoals(); 
+      list.innerHTML = html;
+    },
+    add: function() {
+      const input = document.getElementById('new-goal-input');
+      const text = input.value.trim();
+      if(text) {
+        const goals = JSON.parse(localStorage.getItem('osrs-custom') || '[]');
+        goals.push({text: text, done: false});
+        localStorage.setItem('osrs-custom', JSON.stringify(goals));
+        input.value = '';
+        window.osrsTracker.render();
+      }
+    },
+    toggle: function(i, checked) {
+      const goals = JSON.parse(localStorage.getItem('osrs-custom') || '[]');
+      if(goals[i]) {
+        goals[i].done = checked;
+        localStorage.setItem('osrs-custom', JSON.stringify(goals));
+      }
+    },
+    delete: function(i) {
+      const goals = JSON.parse(localStorage.getItem('osrs-custom') || '[]');
+      goals.splice(i, 1);
+      localStorage.setItem('osrs-custom', JSON.stringify(goals));
+      window.osrsTracker.render();
+    },
+    init: function() {
+      document.querySelectorAll('.saveable-check').forEach(cb => {
+        if(localStorage.getItem('static-' + cb.value) === 'true') {
+          cb.checked = true;
+        }
+        cb.onchange = (e) => {
+          localStorage.setItem('static-' + e.target.value, e.target.checked);
+        };
       });
-    });
-  }
-
-  renderCustomGoals();
-
-  addBtn.addEventListener('click', () => {
-    const text = input.value.trim();
-    if (text !== "") {
-      customGoalsArray.push({ text: text, completed: false });
-      localStorage.setItem('osrs-custom-goals', JSON.stringify(customGoalsArray));
-      input.value = ''; 
-      renderCustomGoals(); 
+      window.osrsTracker.render();
     }
-  });
-
-  input.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      addBtn.click();
-    }
-  });
-}
-
-// RUN THE SCRIPT
-// 1. Try to run it immediately (handles hard page refreshes)
-initTracker();
-
-// 2. Also listen for Quartz's navigation event (handles clicking through the site)
-document.addEventListener("nav", initTracker);
-
-</script>
+  };
+  window.osrsTracker.init();
+">
