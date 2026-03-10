@@ -190,17 +190,19 @@ Welcome to the workbench. This is where I track my army rosters, save my paint r
     
   <div class="army-box">
       <h3>Warhammer 40k - Admech Lot</h3>
-      <progress value="2" max="9"></progress>
+      <progress value="4" max="11"></progress>
       <ul>
         <li><input type="checkbox" checked> <del>Skitarii Rangers x10</del></li>
         <li><input type="checkbox" checked> <del>Kastelan Robots x2</del></li>
-        <li><input type="checkbox">Skitarii Vanguard x10 (On Sprew)</li>
+        <li><input type="checkbox" checked> <del>Skitarii Vanguard x10 (On Sprew)<del></li>
         <li><input type="checkbox">Skitarii Vanguard x10 (In Box)</li>
-        <li><input type="checkbox">Kataphron Breachers x3 #1 (Primed)</li>
+        <li><input type="checkbox" checked> <del>Kataphron Breachers x3 #1 (Primed)<del></li>
         <li><input type="checkbox">Kataphron Breachers x3 #2 (On Sprew)</li>
         <li><input type="checkbox">Kataphron Breachers x3 #3 (On Sprew)</li>
         <li><input type="checkbox">Skitarii Marshall (HQ on Sprew)</li>
         <li><input type="checkbox">manipulus (HQ) (In Box)</li>
+        <li><input type="checkbox">manipulus (HQ) Alex Gift</li>
+        <li><input type="checkbox">skorpius disintegrator (In Box)</li>
       </ul>
     </div>
 
