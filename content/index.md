@@ -1,6 +1,6 @@
 <div class="hub-header">
   <h1>My Personal Hub</h1>
-  <p>Projects, gaming, and worldbuilding.</p>
+  <p>Save some Time for fun.</p>
 </div>
 
 <div class="hub-container">
