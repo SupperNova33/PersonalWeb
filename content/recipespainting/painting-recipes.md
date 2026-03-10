@@ -92,14 +92,17 @@ A complete grid of all my color schemes, wash techniques, and basing recipes.
 <div class="recipe-grid" id="recipe-grid">
 
   <div class="recipe-card-small">
-    <img src="https://via.placeholder.com/400x200/333333/888888?text=Grimdark+Armor" alt="Grimdark Armor">
+    <img src="https://via.placeholder.com/400x200/333333/888888?text=Grimdark+Armor" alt="Admech Cloak">
     <div class="recipe-content">
-      <h3>Grimdark Armor</h3>
+      <h3>Admech Robes</h3>
       <ul>
         <li><strong>Prime:</strong> Chaos Black</li>
-        <li><strong>Base:</strong> Leadbelcher</li>
-        <li><strong>Wash:</strong> Nuln Oil</li>
-        <li><strong>Rust:</strong> Skrag Brown</li>
+        <li><strong>Base:</strong> Warm Grey (Pro Acryl)</li>
+        <li><strong>Midtone:</strong> Bright Neutral Grey (Pro Acryl)</li>
+        <li><strong>Highlight:</strong> Bold Titaium White (Pro Acryl)</li>
+        <li><strong>embroidery:</strong> Bold Pyrrole Red (Pro Acryl)</li>
+        <li><strong>Note: <strong>For Armor on Vehcials/non Cloth Have the Bright Neutral Grey be the Highlight &
+        add winter streaking grim from AK</li>
       </ul>
     </div>
   </div>

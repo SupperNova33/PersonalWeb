@@ -107,6 +107,15 @@
     </ul>
   </details>
 
+  <details>
+    <summary>Personal Goals Check List</summary>
+    <ul class="goal-list">
+      <li><label><input type="checkbox" class="saveable-check" value="StormPet"> Get the Temporuss Pet</label></li>
+      <li><label><input type="checkbox" class="saveable-check" value="DragonHarpoon"> Dragon Harpoon for FISH</label></li>
+      <li><label><input type="checkbox" class="saveable-check" value="DragonFirePotion"> Unlock Anti Dragon Fire Potion</label></li>
+    </ul>
+  </details>
+
   <div class="add-goal-box">
     <h3 style="color: #b8860b; margin-top: 0;">🎯 Custom & Rolling Goals</h3>
     <input type="text" id="new-goal-input" placeholder="E.g., Farm 500 giant seaweed..." onkeypress="if(event.key === 'Enter') window.osrsTracker.add()">
