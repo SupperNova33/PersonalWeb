@@ -8,6 +8,8 @@ Quartz is a set of tools that helps you publish your [digital garden](https://jz
 
 [Join the Discord Community](https://discord.gg/cRFFHYye7t)
 
+to Push changes to the Documents you need to put *npx quartz sync* into the Concul
+
 ## Sponsors
 
 <p align="center">
