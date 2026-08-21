@@ -27,11 +27,12 @@ She does not want power or answers.
 
 She wants:
 > To be normal again — or at least left alone.
+(Starting concepts I want to develop her story akin to the heros journey.)
 
 ---
 ## Reluctance Sources
-- Escalating danger with every successful mission
-- Increased visibility and institutional reliance
+- Escalating danger with every successful mission (Start small keep the stakes low the build.)
+- Increased visibility and institutional reliance 
 - The fear that understanding the machine too well diminishes its mystery
 
 ---
