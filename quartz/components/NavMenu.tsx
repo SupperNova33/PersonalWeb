@@ -8,10 +8,10 @@ export default (() => {
         <ul>
           <li><a href="/">🏠 The Hub</a></li>
           <li><a href="/miniatures">🎨 Miniatures</a></li>
-          <li><a href="/painting-recipes">🧪 Paint Recipes</a></li>
+          <li><a href="/recipespainting/painting-recipes">🧪 Paint Recipes</a></li>
           <li><a href="/ironman">⚔️ OSRS Tracker</a></li>
           <li><a href="/brainstorm">💡 Brainstorm</a></li>
-          <li><a href="/CyberSpell_Start">🌌 Cyber Spell Vault</a></li>
+          <li><a href="/Cyberspell/CyberSpell_Start">🌌 Cyber Spell Vault</a></li>
         </ul>
       </div>
     )
